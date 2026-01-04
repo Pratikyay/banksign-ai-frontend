@@ -24,13 +24,13 @@ Follow these steps:
 
 ```sh
 # Step 1: Clone the repository using the project's Git URL.
-git clone <https://github.com/Pratikyay/banksign-ai-frontend>
+git clone https://github.com/Pratikyay/banksign-ai-frontend
 
 # Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+cd banksign-ai-frontend
 
 # Step 3: Install the necessary dependencies.
-npm i
+npm istall
 
 # Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
