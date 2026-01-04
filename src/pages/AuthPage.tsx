@@ -4,20 +4,20 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Hand, Mail, Lock, User, ArrowLeft } from "lucide-react";
+import { Hand, Lock, User, ArrowLeft, Building2, Hash } from "lucide-react";
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
+    username: "",
     password: "",
     confirmPassword: "",
+    bankName: "",
+    counterId: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
     console.log("Form submitted:", formData);
   };
 
@@ -26,18 +26,24 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+      </div>
+
       {/* Header */}
-      <header className="w-full bg-card/95 backdrop-blur-sm border-b border-border">
+      <header className="relative z-10 w-full bg-card/80 backdrop-blur-xl border-b border-border">
         <div className="container flex h-16 items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-lg shadow-primary/20 group-hover:shadow-primary/30 transition-shadow">
               <Hand className="w-5 h-5 text-primary-foreground" />
             </div>
-            <span className="text-xl font-semibold text-foreground">BankSign AI</span>
+            <span className="text-xl font-bold text-foreground">BankSign AI</span>
           </Link>
-          <Button asChild variant="ghost" size="sm">
-            <Link to="/" className="flex items-center gap-2">
+          <Button asChild variant="ghost" size="sm" className="gap-2">
+            <Link to="/">
               <ArrowLeft className="w-4 h-4" />
               Back to Home
             </Link>
@@ -46,63 +52,46 @@ const AuthPage = () => {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 flex items-center justify-center p-6">
-        <Card className="w-full max-w-md">
-          <CardHeader className="text-center">
-            <div className="mx-auto w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
-              <Hand className="w-8 h-8 text-primary" />
+      <main className="relative z-10 flex-1 flex items-center justify-center p-6">
+        <Card className="w-full max-w-md card-elevated">
+          <CardHeader className="text-center pb-2">
+            <div className="mx-auto w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center mb-4 animate-float">
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-lg">
+                <Hand className="w-7 h-7 text-primary-foreground" />
+              </div>
             </div>
-            <CardTitle className="text-2xl">
-              {isLogin ? "Welcome Back" : "Create Account"}
+            <CardTitle className="text-2xl font-bold">
+              {isLogin ? "Welcome Back" : "Get Started"}
             </CardTitle>
-            <CardDescription>
+            <CardDescription className="text-base">
               {isLogin
-                ? "Sign in to access your BankSign AI account"
-                : "Sign up to start using BankSign AI"}
+                ? "Sign in to your BankSign AI account"
+                : "Create your BankSign AI account"}
             </CardDescription>
           </CardHeader>
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {!isLogin && (
-                <div className="space-y-2">
-                  <Label htmlFor="name">Full Name</Label>
-                  <div className="relative">
-                    <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                    <Input
-                      id="name"
-                      name="name"
-                      type="text"
-                      placeholder="John Doe"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="pl-10"
-                      required
-                    />
-                  </div>
-                </div>
-              )}
-
+          <CardContent className="pt-4">
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="username" className="text-sm font-medium">Username</Label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                  <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="you@example.com"
-                    value={formData.email}
+                    id="username"
+                    name="username"
+                    type="text"
+                    placeholder="Enter your username"
+                    value={formData.username}
                     onChange={handleChange}
-                    className="pl-10"
+                    className="pl-11 h-12 input-enhanced"
                     required
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password" className="text-sm font-medium">Password</Label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                  <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <Input
                     id="password"
                     name="password"
@@ -110,72 +99,108 @@ const AuthPage = () => {
                     placeholder="••••••••"
                     value={formData.password}
                     onChange={handleChange}
-                    className="pl-10"
+                    className="pl-11 h-12 input-enhanced"
                     required
                   />
                 </div>
               </div>
 
               {!isLogin && (
-                <div className="space-y-2">
-                  <Label htmlFor="confirmPassword">Confirm Password</Label>
-                  <div className="relative">
-                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                    <Input
-                      id="confirmPassword"
-                      name="confirmPassword"
-                      type="password"
-                      placeholder="••••••••"
-                      value={formData.confirmPassword}
-                      onChange={handleChange}
-                      className="pl-10"
-                      required
-                    />
+                <>
+                  <div className="space-y-2">
+                    <Label htmlFor="confirmPassword" className="text-sm font-medium">Confirm Password</Label>
+                    <div className="relative">
+                      <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                      <Input
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        type="password"
+                        placeholder="••••••••"
+                        value={formData.confirmPassword}
+                        onChange={handleChange}
+                        className="pl-11 h-12 input-enhanced"
+                        required
+                      />
+                    </div>
                   </div>
-                </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="bankName" className="text-sm font-medium">Bank Name</Label>
+                    <div className="relative">
+                      <Building2 className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                      <Input
+                        id="bankName"
+                        name="bankName"
+                        type="text"
+                        placeholder="Enter your bank name"
+                        value={formData.bankName}
+                        onChange={handleChange}
+                        className="pl-11 h-12 input-enhanced"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="counterId" className="text-sm font-medium">Counter ID</Label>
+                    <div className="relative">
+                      <Hash className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                      <Input
+                        id="counterId"
+                        name="counterId"
+                        type="text"
+                        placeholder="e.g., C001"
+                        value={formData.counterId}
+                        onChange={handleChange}
+                        className="pl-11 h-12 input-enhanced"
+                        required
+                      />
+                    </div>
+                  </div>
+                </>
               )}
 
               {isLogin && (
                 <div className="text-right">
-                  <button type="button" className="text-sm text-primary hover:underline">
+                  <button type="button" className="text-sm text-primary hover:text-primary/80 transition-colors font-medium">
                     Forgot password?
                   </button>
                 </div>
               )}
 
-              <Button type="submit" className="w-full" size="lg">
+              <Button type="submit" className="w-full h-12 text-base font-semibold btn-glow" size="lg">
                 {isLogin ? "Sign In" : "Create Account"}
               </Button>
             </form>
 
-            <div className="mt-6 text-center text-sm">
-              {isLogin ? (
-                <p className="text-muted-foreground">
-                  Don't have an account?{" "}
-                  <button
-                    type="button"
-                    onClick={() => setIsLogin(false)}
-                    className="text-primary hover:underline font-medium"
-                  >
-                    Sign up
-                  </button>
-                </p>
-              ) : (
-                <p className="text-muted-foreground">
-                  Already have an account?{" "}
-                  <button
-                    type="button"
-                    onClick={() => setIsLogin(true)}
-                    className="text-primary hover:underline font-medium"
-                  >
-                    Sign in
-                  </button>
-                </p>
-              )}
+            <div className="mt-8 text-center">
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-border" />
+                </div>
+                <div className="relative flex justify-center text-xs uppercase">
+                  <span className="bg-card px-3 text-muted-foreground">
+                    {isLogin ? "New to BankSign AI?" : "Already registered?"}
+                  </span>
+                </div>
+              </div>
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => setIsLogin(!isLogin)}
+                className="mt-4 w-full h-11"
+              >
+                {isLogin ? "Create an Account" : "Sign In Instead"}
+              </Button>
             </div>
           </CardContent>
         </Card>
       </main>
+
+      {/* Footer */}
+      <footer className="relative z-10 py-4 text-center text-sm text-muted-foreground">
+        <p>© 2025 BankSign AI. Bridging communication gaps.</p>
+      </footer>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Hand, LayoutDashboard, User } from "lucide-react";
+import { Hand, LayoutDashboard, User, BookOpen } from "lucide-react";
 
 const Header = () => {
   const location = useLocation();
@@ -9,46 +9,51 @@ const Header = () => {
   const isDashboard = location.pathname === "/dashboard";
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-card/95 backdrop-blur-sm border-b border-border">
+    <header className="sticky top-0 z-50 w-full bg-card/80 backdrop-blur-xl border-b border-border/50">
       <div className="container flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+        <Link to="/" className="flex items-center gap-3 group">
+          <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-lg shadow-primary/20 group-hover:shadow-primary/30 transition-all duration-300 group-hover:scale-105">
             <Hand className="w-5 h-5 text-primary-foreground" />
           </div>
-          <span className="text-xl font-semibold text-foreground">BankSign AI</span>
+          <div className="flex flex-col">
+            <span className="text-lg font-bold text-foreground leading-tight">BankSign AI</span>
+            <span className="text-xs text-muted-foreground leading-tight">Sign Language Translator</span>
+          </div>
         </Link>
 
-        <nav className="flex items-center gap-3">
-          {!isLearn && (
-            <Button asChild variant={isHome ? "default" : "outline"} size="sm">
-              <Link to="/learn" className="flex items-center gap-2">
-                <Hand className="w-4 h-4" />
-                Learn How to Sign
-              </Link>
-            </Button>
-          )}
-          
-          {!isDashboard && (
-            <Button asChild variant="outline" size="sm">
-              <Link to="/dashboard" className="flex items-center gap-2">
-                <LayoutDashboard className="w-4 h-4" />
-                Dashboard
-              </Link>
-            </Button>
-          )}
-
+        <nav className="flex items-center gap-2">
           {!isHome && (
-            <Button asChild variant="default" size="sm">
+            <Button asChild variant="ghost" size="sm" className="gap-2">
               <Link to="/">
                 Home
               </Link>
             </Button>
           )}
 
-          <Button asChild variant="secondary" size="sm">
-            <Link to="/auth" className="flex items-center gap-2">
+          {!isLearn && (
+            <Button asChild variant={isHome ? "default" : "ghost"} size="sm" className="gap-2">
+              <Link to="/learn">
+                <BookOpen className="w-4 h-4" />
+                <span className="hidden sm:inline">Learn Signs</span>
+              </Link>
+            </Button>
+          )}
+          
+          {!isDashboard && (
+            <Button asChild variant="ghost" size="sm" className="gap-2">
+              <Link to="/dashboard">
+                <LayoutDashboard className="w-4 h-4" />
+                <span className="hidden sm:inline">Dashboard</span>
+              </Link>
+            </Button>
+          )}
+
+          <div className="w-px h-6 bg-border mx-1" />
+
+          <Button asChild variant="secondary" size="sm" className="gap-2 font-medium">
+            <Link to="/auth">
               <User className="w-4 h-4" />
-              Login
+              <span>Login</span>
             </Link>
           </Button>
         </nav>
