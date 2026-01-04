@@ -15,7 +15,7 @@ const FloatingChatButton = () => {
     {
       id: "1",
       role: "assistant",
-      content: "Hello! 👋 I'm your BankSign AI assistant. How can I help you today?",
+      content: "Hello! 👋 I'm Gesturo, your sign language assistant. How can I help you today?",
     },
   ]);
   const [inputValue, setInputValue] = useState("");
@@ -75,8 +75,8 @@ const FloatingChatButton = () => {
                 <Bot className="w-5 h-5 text-primary-foreground" />
               </div>
               <div>
-                <h2 className="font-semibold text-primary-foreground">AI Assistant</h2>
-                <p className="text-xs text-primary-foreground/70">Always here to help</p>
+                <h2 className="font-semibold text-primary-foreground">Gesturo</h2>
+                <p className="text-xs text-primary-foreground/70">Your sign language assistant</p>
               </div>
             </div>
             <Button 
