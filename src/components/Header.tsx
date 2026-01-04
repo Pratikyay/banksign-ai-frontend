@@ -1,12 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Bot, Hand, LayoutDashboard } from "lucide-react";
+import { Hand, LayoutDashboard, User } from "lucide-react";
 
-interface HeaderProps {
-  onOpenAssistant?: () => void;
-}
-
-const Header = ({ onOpenAssistant }: HeaderProps) => {
+const Header = () => {
   const location = useLocation();
   const isHome = location.pathname === "/";
   const isLearn = location.pathname === "/learn";
@@ -41,13 +37,6 @@ const Header = ({ onOpenAssistant }: HeaderProps) => {
             </Button>
           )}
 
-          {isHome && onOpenAssistant && (
-            <Button onClick={onOpenAssistant} variant="secondary" size="sm" className="flex items-center gap-2">
-              <Bot className="w-4 h-4" />
-              AI Assistant
-            </Button>
-          )}
-
           {!isHome && (
             <Button asChild variant="default" size="sm">
               <Link to="/">
@@ -55,6 +44,13 @@ const Header = ({ onOpenAssistant }: HeaderProps) => {
               </Link>
             </Button>
           )}
+
+          <Button asChild variant="secondary" size="sm">
+            <Link to="/auth" className="flex items-center gap-2">
+              <User className="w-4 h-4" />
+              Login
+            </Link>
+          </Button>
         </nav>
       </div>
     </header>
