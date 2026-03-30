@@ -20,14 +20,14 @@ const WithdrawForm = () => {
   const { videoRef: idVideoRef } = useHandDetection({ onPrediction: onIdPrediction, enabled: step === 3 && idChoice === null });
 
   return (
-    <div className="min-h-screen bg-slate-100">
+    <div className="min-h-screen bg-navy-50">
       <Header />
       <main className="max-w-3xl mx-auto px-4 py-8 flex flex-col items-center gap-6">
-        <h1 className="text-2xl font-bold text-slate-900">Withdraw Money</h1>
+        <h1 className="text-2xl font-bold text-navy-900">Withdraw Money</h1>
 
         <div className="flex gap-2">
           {[1, 2, 3].map(s => (
-            <div key={s} className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${step >= s ? "bg-amber-400 text-white" : "bg-slate-200 text-slate-500"}`}>{s}</div>
+            <div key={s} className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${step >= s ? "bg-gold-400 text-white" : "bg-navy-100 text-navy-500"}`}>{s}</div>
           ))}
         </div>
 
@@ -36,31 +36,31 @@ const WithdrawForm = () => {
 
         {step === 3 && idChoice === null && (
           <div className="text-center">
-            <p className="text-slate-700 font-medium mb-2">Do you have your ID?</p>
-            <p className="text-slate-500 text-sm">Sign 1 for Yes, Sign 2 for No</p>
-            <div className="w-[360px] h-[220px] rounded-xl border-2 border-slate-300 overflow-hidden bg-slate-200 mt-4 mx-auto">
+            <p className="text-navy-600 font-medium mb-2">Do you have your ID?</p>
+            <p className="text-navy-500 text-sm">Sign 1 for Yes, Sign 2 for No</p>
+            <div className="w-[360px] h-[220px] rounded-xl border-2 border-navy-200 overflow-hidden bg-navy-100 mt-4 mx-auto">
               <video ref={idVideoRef} className="w-full h-full object-cover" style={{ transform: "scaleX(-1)" }} autoPlay playsInline muted />
             </div>
           </div>
         )}
 
         {step === 3 && idChoice === "yes" && (
-          <div className="bg-white border border-slate-200 rounded-xl p-8 text-center">
+          <div className="bg-white border border-navy-100 rounded-xl p-8 text-center">
             <div className="text-4xl mb-3">✅</div>
-            <h2 className="text-xl font-bold text-slate-900">Withdrawal Request Submitted</h2>
-            <p className="text-slate-600 mt-2">Account: {account} | Amount: ${amount}</p>
+            <h2 className="text-xl font-bold text-navy-900">Withdrawal Request Submitted</h2>
+            <p className="text-navy-500 mt-2">Account: {account} | Amount: ${amount}</p>
           </div>
         )}
 
         {step === 3 && idChoice === "no" && (
-          <div className="bg-white border border-slate-200 rounded-xl p-8 text-center">
+          <div className="bg-white border border-navy-100 rounded-xl p-8 text-center">
             <div className="text-4xl mb-3">🏢</div>
-            <h2 className="text-xl font-bold text-slate-900">Please Visit the Counter</h2>
-            <p className="text-slate-600 mt-2">ID verification is required for withdrawals.</p>
+            <h2 className="text-xl font-bold text-navy-900">Please Visit the Counter</h2>
+            <p className="text-navy-500 mt-2">ID verification is required for withdrawals.</p>
           </div>
         )}
 
-        <button onClick={() => navigate("/")} className="text-sm text-amber-600 hover:text-amber-700 font-medium">← Back to Mode Selection</button>
+        <button onClick={() => navigate("/")} className="text-sm text-gold-500 hover:text-gold-600 font-medium">← Back to Mode Selection</button>
       </main>
     </div>
   );

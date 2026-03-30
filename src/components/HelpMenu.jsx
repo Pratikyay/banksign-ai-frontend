@@ -57,42 +57,42 @@ const HelpMenu = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-100">
+    <div className="min-h-screen bg-navy-50">
       <Header />
       <main className="max-w-3xl mx-auto px-4 py-8 flex flex-col items-center gap-6">
-        <h1 className="text-2xl font-bold text-slate-900">I Need Assistance</h1>
+        <h1 className="text-2xl font-bold text-navy-900">I Need Assistance</h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
           {cards.map(c => (
-            <div key={c.id} className={`bg-white border-2 rounded-xl p-6 text-center transition-all ${activeCard === c.id ? "border-amber-400 shadow-[0_0_20px_rgba(251,191,36,0.3)]" : "border-slate-200"}`}>
+            <div key={c.id} className={`bg-white border-2 rounded-xl p-6 text-center transition-all ${activeCard === c.id ? "border-gold-400 shadow-[0_0_20px_rgba(251,191,36,0.3)]" : "border-navy-100"}`}>
               <div className="text-4xl mb-2">{c.icon}</div>
-              <h3 className="font-bold text-slate-900">{c.title}</h3>
-              <span className="inline-block mt-2 bg-amber-100 text-amber-700 text-xs font-semibold px-3 py-1 rounded-full">{c.sub}</span>
+              <h3 className="font-bold text-navy-900">{c.title}</h3>
+              <span className="inline-block mt-2 bg-gold-100 text-gold-600 text-xs font-semibold px-3 py-1 rounded-full">{c.sub}</span>
             </div>
           ))}
         </div>
 
-        <div className="w-[360px] h-[220px] rounded-xl border-2 border-slate-300 overflow-hidden bg-slate-200">
+        <div className="w-[360px] h-[220px] rounded-xl border-2 border-navy-200 overflow-hidden bg-navy-100">
           <video ref={videoRef} className="w-full h-full object-cover" style={{ transform: "scaleX(-1)" }} autoPlay playsInline muted />
         </div>
 
         {holdProgress > 0 && (
-          <div className="w-64 h-2 bg-slate-200 rounded-full overflow-hidden">
-            <div className="h-full bg-amber-400 rounded-full" style={{ width: `${holdProgress * 100}%` }} />
+          <div className="w-64 h-2 bg-navy-100 rounded-full overflow-hidden">
+            <div className="h-full bg-gold-400 rounded-full" style={{ width: `${holdProgress * 100}%` }} />
           </div>
         )}
 
         {showTutorial && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
             <div className="bg-white rounded-2xl p-8 max-w-md w-full">
-              <h2 className="text-xl font-bold text-slate-900 mb-4">How to Use BankSignAI</h2>
-              <ol className="text-slate-600 text-sm space-y-2 list-decimal pl-5">
+              <h2 className="text-xl font-bold text-navy-900 mb-4">How to Use BankSignAI</h2>
+              <ol className="text-navy-500 text-sm space-y-2 list-decimal pl-5">
                 <li>Choose a mode: Fingerspell or Banking</li>
                 <li>Position your hands in front of the camera</li>
                 <li>Hold gestures for the required time to confirm</li>
                 <li>Follow on-screen instructions for each step</li>
               </ol>
-              <button onClick={() => setShowTutorial(false)} className="mt-6 w-full bg-amber-400 hover:bg-amber-500 text-white font-semibold py-2 rounded-lg">Close</button>
+              <button onClick={() => setShowTutorial(false)} className="mt-6 w-full bg-gold-400 hover:bg-gold-500 text-white font-semibold py-2 rounded-lg">Close</button>
             </div>
           </div>
         )}
@@ -103,7 +103,7 @@ const HelpMenu = () => {
           </div>
         )}
 
-        <button onClick={() => navigate("/")} className="text-sm text-amber-600 hover:text-amber-700 font-medium">← Back to Mode Selection</button>
+        <button onClick={() => navigate("/")} className="text-sm text-gold-500 hover:text-gold-600 font-medium">← Back to Mode Selection</button>
       </main>
     </div>
   );

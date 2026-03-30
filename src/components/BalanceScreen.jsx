@@ -21,14 +21,14 @@ const BalanceScreen = () => {
   const { videoRef: step3VideoRef } = useHandDetection({ onPrediction: onStep3Prediction, enabled: step === 3 });
 
   return (
-    <div className="min-h-screen bg-slate-100">
+    <div className="min-h-screen bg-navy-50">
       <Header />
       <main className="max-w-3xl mx-auto px-4 py-8 flex flex-col items-center gap-6">
-        <h1 className="text-2xl font-bold text-slate-900">Check Balance</h1>
+        <h1 className="text-2xl font-bold text-navy-900">Check Balance</h1>
 
         <div className="flex gap-2">
           {[1, 2, 3].map(s => (
-            <div key={s} className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${step >= s ? "bg-amber-400 text-white" : "bg-slate-200 text-slate-500"}`}>{s}</div>
+            <div key={s} className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${step >= s ? "bg-gold-400 text-white" : "bg-navy-100 text-navy-500"}`}>{s}</div>
           ))}
         </div>
 
@@ -39,31 +39,31 @@ const BalanceScreen = () => {
         {step === 2 && (
           <div className="w-full max-w-lg space-y-6">
             {/* Customer section */}
-            <div className="bg-white border border-slate-200 rounded-xl p-6 text-center">
-              <p className="text-slate-600 text-sm">Account Number</p>
-              <p className="text-3xl font-bold text-slate-900 tracking-widest mt-1">{account}</p>
+            <div className="bg-white border border-navy-100 rounded-xl p-6 text-center">
+              <p className="text-navy-500 text-sm">Account Number</p>
+              <p className="text-3xl font-bold text-navy-900 tracking-widest mt-1">{account}</p>
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="flex-1 h-px bg-slate-300" />
-              <span className="text-xs text-slate-500 font-medium">— Receptionist Section —</span>
-              <div className="flex-1 h-px bg-slate-300" />
+              <div className="flex-1 h-px bg-navy-200" />
+              <span className="text-xs text-navy-500 font-medium">— Receptionist Section —</span>
+              <div className="flex-1 h-px bg-navy-200" />
             </div>
 
             {/* Receptionist section */}
-            <div className="bg-white border border-slate-200 rounded-xl p-6">
-              <label className="block text-sm text-slate-600 mb-2">Enter balance amount</label>
+            <div className="bg-white border border-navy-100 rounded-xl p-6">
+              <label className="block text-sm text-navy-500 mb-2">Enter balance amount</label>
               <input
                 type="text"
                 value={balanceInput}
                 onChange={(e) => setBalanceInput(e.target.value)}
                 placeholder="e.g. 5000.00"
-                className="w-full border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent"
+                className="w-full border border-navy-200 rounded-lg px-4 py-3 text-navy-900 focus:outline-none focus:ring-2 focus:ring-gold-400 focus:border-transparent"
               />
               <button
                 onClick={() => { setBalance(balanceInput); setStep(3); }}
                 disabled={!balanceInput}
-                className="w-full mt-4 bg-amber-400 hover:bg-amber-500 text-white font-semibold py-3 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full mt-4 bg-gold-400 hover:bg-gold-500 text-white font-semibold py-3 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Show Balance
               </button>
@@ -72,15 +72,15 @@ const BalanceScreen = () => {
         )}
 
         {step === 3 && (
-          <div className="bg-white border border-slate-200 rounded-xl p-10 text-center max-w-md w-full">
-            <p className="text-slate-500 text-sm">Available Balance</p>
-            <p className="text-5xl font-bold text-amber-500 mt-2">${parseFloat(balance || 0).toLocaleString("en-US", { minimumFractionDigits: 2 })}</p>
-            <p className="text-slate-400 text-sm mt-3">Account: {account}</p>
-            <p className="text-xs text-slate-400 mt-6">Sign 1 to return to main menu</p>
+          <div className="bg-white border border-navy-100 rounded-xl p-10 text-center max-w-md w-full">
+            <p className="text-navy-500 text-sm">Available Balance</p>
+            <p className="text-5xl font-bold text-gold-500 mt-2">${parseFloat(balance || 0).toLocaleString("en-US", { minimumFractionDigits: 2 })}</p>
+            <p className="text-navy-300 text-sm mt-3">Account: {account}</p>
+            <p className="text-xs text-navy-300 mt-6">Sign 1 to return to main menu</p>
           </div>
         )}
 
-        <button onClick={() => navigate("/")} className="text-sm text-amber-600 hover:text-amber-700 font-medium">← Back to Mode Selection</button>
+        <button onClick={() => navigate("/")} className="text-sm text-gold-500 hover:text-gold-600 font-medium">← Back to Mode Selection</button>
       </main>
     </div>
   );

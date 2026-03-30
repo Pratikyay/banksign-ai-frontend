@@ -30,12 +30,12 @@ const LearnPage = () => {
   const filtered = signs.filter(s => s.name.toLowerCase().includes(search.toLowerCase()));
 
   return (
-    <div className="min-h-screen bg-slate-100">
+    <div className="min-h-screen bg-navy-50">
       <Header />
       <main className="max-w-5xl mx-auto px-4 py-8">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-slate-900">Learn ASL Signs</h1>
-          <p className="text-slate-600 mt-1">Master the gestures used in BankSignAI</p>
+          <h1 className="text-3xl font-bold text-navy-900">Learn ASL Signs</h1>
+          <p className="text-navy-500 mt-1">Master the gestures used in BankSignAI</p>
         </div>
 
         <div className="max-w-md mx-auto mb-8">
@@ -44,22 +44,22 @@ const LearnPage = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search signs…"
-            className="w-full border border-slate-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent"
+            className="w-full border border-navy-200 rounded-lg px-4 py-3 text-navy-900 focus:outline-none focus:ring-2 focus:ring-gold-400 focus:border-transparent"
           />
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {filtered.map(s => (
-            <div key={s.name} className="bg-white border border-slate-200 rounded-xl p-4 text-center hover:border-amber-400 hover:shadow-md transition-all">
+            <div key={s.name} className="bg-white border border-navy-100 rounded-xl p-4 text-center hover:border-gold-400 hover:shadow-md transition-all">
               <div className="text-4xl mb-2">{s.emoji}</div>
-              <h3 className="font-bold text-slate-900 text-sm">{s.name}</h3>
-              <p className="text-xs text-slate-500 mt-1">{s.instruction}</p>
+              <h3 className="font-bold text-navy-900 text-sm">{s.name}</h3>
+              <p className="text-xs text-navy-500 mt-1">{s.instruction}</p>
             </div>
           ))}
         </div>
 
         <div className="text-center mt-8">
-          <button onClick={() => navigate("/")} className="text-sm text-amber-600 hover:text-amber-700 font-medium">← Back to Mode Selection</button>
+          <button onClick={() => navigate("/")} className="text-sm text-gold-500 hover:text-gold-600 font-medium">← Back to Mode Selection</button>
         </div>
       </main>
     </div>
