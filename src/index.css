@@ -4,5 +4,5 @@
 
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  @apply bg-slate-100 text-slate-900 antialiased;
+  @apply bg-navy-50 text-navy-900 antialiased;
 }
