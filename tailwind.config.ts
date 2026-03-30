@@ -14,6 +14,31 @@ export default {
     },
     extend: {
       colors: {
+        navy: {
+          50: '#f0f3f9',
+          100: '#d9e0ef',
+          200: '#b3c1df',
+          300: '#8da2cf',
+          400: '#6783bf',
+          500: '#3d5a9e',
+          600: '#2d4478',
+          700: '#1e2f53',
+          800: '#152240',
+          900: '#0c1529',
+          950: '#060b16',
+        },
+        gold: {
+          50: '#fdf9eb',
+          100: '#f9efc5',
+          200: '#f3df8b',
+          300: '#edcf51',
+          400: '#d4a017',
+          500: '#b8860b',
+          600: '#9a6f09',
+          700: '#7c5907',
+          800: '#5e4305',
+          900: '#402d04',
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -46,21 +71,6 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
-        },
-        success: {
-          DEFAULT: "hsl(var(--success))",
-          foreground: "hsl(var(--success-foreground))",
-        },
-        webcam: "hsl(var(--webcam-bg))",
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
         },
       },
       borderRadius: {

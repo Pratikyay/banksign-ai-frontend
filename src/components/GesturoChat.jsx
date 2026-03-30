@@ -36,45 +36,45 @@ const GesturoChat = () => {
   return (
     <>
       {open && (
-        <div className="fixed bottom-20 right-4 w-[320px] h-[400px] bg-white border border-slate-200 rounded-2xl shadow-xl flex flex-col z-50 overflow-hidden">
+        <div className="fixed bottom-20 right-4 w-[320px] h-[400px] bg-white border border-navy-100 rounded-2xl shadow-xl flex flex-col z-50 overflow-hidden">
           {/* Header */}
-          <div className="bg-amber-400 px-4 py-3 flex items-center justify-between">
+          <div className="bg-gold-400 px-4 py-3 flex items-center justify-between">
             <div>
               <p className="font-bold text-white text-sm">Gesturo</p>
-              <p className="text-amber-100 text-xs">Your ASL Assistant</p>
+              <p className="text-gold-100 text-xs">Your ASL Assistant</p>
             </div>
             <button onClick={() => setOpen(false)} className="text-white text-xl leading-none">&times;</button>
           </div>
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-3 space-y-3 bg-slate-50">
+          <div className="flex-1 overflow-y-auto p-3 space-y-3 bg-navy-50">
             {messages.map(m => (
               <div key={m.id} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
-                <div className={`max-w-[80%] px-3 py-2 rounded-xl text-sm ${m.role === "user" ? "bg-amber-400 text-white rounded-br-sm" : "bg-white border border-slate-200 text-slate-700 rounded-bl-sm"}`}>
+                <div className={`max-w-[80%] px-3 py-2 rounded-xl text-sm ${m.role === "user" ? "bg-gold-400 text-white rounded-br-sm" : "bg-white border border-navy-100 text-navy-600 rounded-bl-sm"}`}>
                   {m.text}
                 </div>
               </div>
             ))}
             {typing && (
               <div className="flex justify-start">
-                <div className="bg-white border border-slate-200 rounded-xl px-3 py-2 flex gap-1">
-                  <span className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" />
-                  <span className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
-                  <span className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                <div className="bg-white border border-navy-100 rounded-xl px-3 py-2 flex gap-1">
+                  <span className="w-2 h-2 bg-navy-300 rounded-full animate-bounce" />
+                  <span className="w-2 h-2 bg-navy-300 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
+                  <span className="w-2 h-2 bg-navy-300 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
                 </div>
               </div>
             )}
             <div ref={endRef} />
           </div>
           {/* Input */}
-          <form onSubmit={(e) => { e.preventDefault(); send(); }} className="p-3 border-t border-slate-200 flex gap-2">
-            <input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Type a message…" className="flex-1 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400" />
-            <button type="submit" disabled={!input.trim()} className="bg-amber-400 hover:bg-amber-500 text-white px-3 py-2 rounded-lg text-sm font-medium disabled:opacity-50 transition">Send</button>
+          <form onSubmit={(e) => { e.preventDefault(); send(); }} className="p-3 border-t border-navy-100 flex gap-2">
+            <input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Type a message…" className="flex-1 border border-navy-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gold-400" />
+            <button type="submit" disabled={!input.trim()} className="bg-gold-400 hover:bg-gold-500 text-white px-3 py-2 rounded-lg text-sm font-medium disabled:opacity-50 transition">Send</button>
           </form>
         </div>
       )}
 
       {/* FAB */}
-      <button onClick={() => setOpen(!open)} className="fixed bottom-4 right-4 w-14 h-14 bg-amber-400 hover:bg-amber-500 text-white rounded-full shadow-lg flex items-center justify-center z-50 transition-transform hover:scale-105" aria-label="Chat">
+      <button onClick={() => setOpen(!open)} className="fixed bottom-4 right-4 w-14 h-14 bg-gold-400 hover:bg-gold-500 text-white rounded-full shadow-lg flex items-center justify-center z-50 transition-transform hover:scale-105" aria-label="Chat">
         {open ? (
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
         ) : (
@@ -84,8 +84,8 @@ const GesturoChat = () => {
 
       {!open && (
         <span className="fixed bottom-[60px] right-4 flex h-3 w-3 z-50 pointer-events-none">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75" />
-          <span className="relative inline-flex rounded-full h-3 w-3 bg-amber-500" />
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-500 opacity-75" />
+          <span className="relative inline-flex rounded-full h-3 w-3 bg-gold-500" />
         </span>
       )}
     </>

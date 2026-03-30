@@ -77,49 +77,49 @@ const BankingMode = () => {
   const { videoRef, cameraReady, gesture, confidence } = useHandDetection({ onPrediction, enabled: step <= 2 });
 
   return (
-    <div className="min-h-screen bg-slate-100">
+    <div className="min-h-screen bg-navy-50">
       <Header />
       <main className="max-w-3xl mx-auto px-4 py-8 flex flex-col items-center gap-6">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-slate-900">Banking Mode</h1>
-          <p className="text-slate-600 text-sm">Perform a banking gesture to get started</p>
+          <h1 className="text-2xl font-bold text-navy-900">Banking Mode</h1>
+          <p className="text-navy-500 text-sm">Perform a banking gesture to get started</p>
         </div>
 
         {/* Step indicator */}
         <div className="flex gap-3 items-center">
           {[1, 2, 3].map(s => (
-            <div key={s} className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${step >= s ? "bg-amber-400 text-white" : "bg-slate-200 text-slate-500"}`}>{s}</div>
+            <div key={s} className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${step >= s ? "bg-gold-400 text-white" : "bg-navy-100 text-navy-500"}`}>{s}</div>
           ))}
         </div>
 
-        <div className="w-[480px] h-[320px] rounded-xl border-2 border-slate-300 overflow-hidden bg-slate-200 relative">
+        <div className="w-[480px] h-[320px] rounded-xl border-2 border-navy-200 overflow-hidden bg-navy-100 relative">
           <video ref={videoRef} className="w-full h-full object-cover" style={{ transform: "scaleX(-1)" }} autoPlay playsInline muted />
           {countdown !== null && <div className="absolute inset-0 flex items-center justify-center bg-black/40 text-white text-6xl font-bold">{countdown}</div>}
         </div>
 
         {step === 1 && (
           <div className="text-center">
-            <p className="text-slate-700 font-medium">Show thumbs up and hold to begin</p>
+            <p className="text-navy-600 font-medium">Show thumbs up and hold to begin</p>
             {holdProgress > 0 && (
-              <div className="w-64 h-2 bg-slate-200 rounded-full mt-3 mx-auto overflow-hidden">
-                <div className="h-full bg-amber-400 rounded-full" style={{ width: `${holdProgress * 100}%` }} />
+              <div className="w-64 h-2 bg-navy-100 rounded-full mt-3 mx-auto overflow-hidden">
+                <div className="h-full bg-gold-400 rounded-full" style={{ width: `${holdProgress * 100}%` }} />
               </div>
             )}
           </div>
         )}
 
-        {step === 2 && countdown === null && <p className="text-amber-600 font-semibold animate-pulse">Collecting gestures…</p>}
+        {step === 2 && countdown === null && <p className="text-gold-500 font-semibold animate-pulse">Collecting gestures…</p>}
 
         {step === 3 && result && (
-          <div className="bg-white border border-slate-200 rounded-xl p-6 text-center">
-            <p className="text-slate-600 text-sm">Detected gesture:</p>
-            <p className="text-2xl font-bold text-amber-500 mt-1">{result.gesture}</p>
-            <p className="text-slate-500 text-xs mt-1">Confidence: {(result.confidence * 100).toFixed(1)}%</p>
-            <p className="text-slate-400 text-xs mt-3">Navigating…</p>
+          <div className="bg-white border border-navy-100 rounded-xl p-6 text-center">
+            <p className="text-navy-500 text-sm">Detected gesture:</p>
+            <p className="text-2xl font-bold text-gold-500 mt-1">{result.gesture}</p>
+            <p className="text-navy-500 text-xs mt-1">Confidence: {(result.confidence * 100).toFixed(1)}%</p>
+            <p className="text-navy-300 text-xs mt-3">Navigating…</p>
           </div>
         )}
 
-        <button onClick={() => navigate("/")} className="text-sm text-amber-600 hover:text-amber-700 font-medium">← Back to Mode Selection</button>
+        <button onClick={() => navigate("/")} className="text-sm text-gold-500 hover:text-gold-600 font-medium">← Back to Mode Selection</button>
       </main>
     </div>
   );
