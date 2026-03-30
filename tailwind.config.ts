@@ -99,7 +99,7 @@ export default {
         "pulse-ring": "pulse-ring 2s ease-in-out infinite",
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
       },
     },
   },
