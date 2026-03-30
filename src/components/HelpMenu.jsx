@@ -64,7 +64,7 @@ const HelpMenu = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
           {cards.map(c => (
-            <div key={c.id} className={`bg-white border-2 rounded-xl p-6 text-center transition-all ${activeCard === c.id ? "border-gold-400 shadow-[0_0_20px_rgba(251,191,36,0.3)]" : "border-navy-100"}`}>
+            <div key={c.id} className={`bg-white border-2 rounded-xl p-6 text-center transition-all ${activeCard === c.id ? "border-gold-400 shadow-[0_0_20px_rgba(212,160,23,0.3)]" : "border-navy-100"}`}>
               <div className="text-4xl mb-2">{c.icon}</div>
               <h3 className="font-bold text-navy-900">{c.title}</h3>
               <span className="inline-block mt-2 bg-gold-100 text-gold-600 text-xs font-semibold px-3 py-1 rounded-full">{c.sub}</span>

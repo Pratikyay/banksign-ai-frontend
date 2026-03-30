@@ -69,14 +69,14 @@ const ModeSelection = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-2xl">
           {/* Card 1 */}
-          <div className={`bg-white border-2 rounded-2xl p-6 transition-all duration-300 ${activeCard === 1 ? "border-gold-400 shadow-[0_0_20px_rgba(251,191,36,0.3)]" : "border-navy-100"}`}>
+          <div className={`bg-white border-2 rounded-2xl p-6 transition-all duration-300 ${activeCard === 1 ? "border-gold-400 shadow-[0_0_20px_rgba(212,160,23,0.3)]" : "border-navy-100"}`}>
             <div className="text-4xl mb-3">👋</div>
             <h2 className="text-lg font-bold text-navy-900">Fingerspell Conversation</h2>
             <p className="text-navy-500 text-sm mt-1">Sign letter by letter to build sentences</p>
             <span className="inline-block mt-3 bg-gold-100 text-gold-600 text-xs font-semibold px-3 py-1 rounded-full">Sign 1 to select</span>
           </div>
           {/* Card 2 */}
-          <div className={`bg-white border-2 rounded-2xl p-6 transition-all duration-300 ${activeCard === 2 ? "border-gold-400 shadow-[0_0_20px_rgba(251,191,36,0.3)]" : "border-navy-100"}`}>
+          <div className={`bg-white border-2 rounded-2xl p-6 transition-all duration-300 ${activeCard === 2 ? "border-gold-400 shadow-[0_0_20px_rgba(212,160,23,0.3)]" : "border-navy-100"}`}>
             <div className="text-4xl mb-3">🏦</div>
             <h2 className="text-lg font-bold text-navy-900">Banking Interaction</h2>
             <p className="text-navy-500 text-sm mt-1">Complete banking tasks step by step</p>
